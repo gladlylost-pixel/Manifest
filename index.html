@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manifest Talent - Strategic partnership architecture for mission-driven leaders. Trusted advisor to C-level executives building meaningful collaborations.">
+    <title>Manifest Talent | Strategic Partnership Architecture</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sage-green: #8B9D83;
+            --sage-dark: #6d7d66;
+            --sage-light: #a8b9a0;
+            --neutral-100: #fafaf9;
+            --neutral-200: #f5f5f4;
+            --neutral-300: #e7e5e4;
+            --neutral-700: #44403c;
+            --neutral-800: #292524;
+            --neutral-900: #1c1917;
+            --accent-warm: #d4af7a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--neutral-100);
+            color: var(--neutral-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--neutral-300);
+            transition: transform 0.3s ease;
+        }
+        
+        nav.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--neutral-700);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+        
+        .nav-links a:hover {
+            color: var(--sage-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(139, 157, 131, 0.03) 0%, 
+                rgba(139, 157, 131, 0.08) 50%,
+                transparent 100%);
+            pointer-events: none;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+        
+        .hero-content h1 {
+            font-size: 4.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: var(--sage-green);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--neutral-700);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--sage-green);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 157, 131, 0.2);
+        }
+        
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+            from {
+                opacity: 0;
+            }
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 3px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            background: white;
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, var(--sage-green), transparent);
+            opacity: 0.3;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--sage-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        
+        .about-container h2 {
+            font-size: 3.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 2rem;
+            line-height: 1.15;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--neutral-700);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Approach Section */
+        .approach {
+            padding: 8rem 2rem;
+            background: var(--neutral-200);
+        }
+        
+        .approach-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .approach-header {
+            max-width: 800px;
+            margin-bottom: 5rem;
+        }
+        
+        .approach-header h2 {
+            font-size: 3.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 1.5rem;
+        }
+        
+        .approach-header p {
+            font-size: 1.2rem;
+            color: var(--neutral-700);
+            line-height: 1.8;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        
+        .principle-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 2px;
+            border-top: 3px solid var(--sage-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .principle-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--sage-light);
+            margin-bottom: 1rem;
+        }
+        
+        .principle-card h3 {
+            font-size: 1.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 1rem;
+        }
+        
+        .principle-card p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            padding: 8rem 2rem;
+            background: white;
+        }
+        
+        .expertise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .expertise-header {
+            margin-bottom: 4rem;
+        }
+        
+        .expertise-header h2 {
+            font-size: 3.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 1.5rem;
+        }
+        
+        .expertise-areas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .expertise-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--neutral-300);
+            display: flex;
+            align-items: start;
+            gap: 2rem;
+        }
+        
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--sage-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+        
+        .expertise-icon::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .expertise-item h3 {
+            font-size: 1.4rem;
+            color: var(--neutral-900);
+            margin-bottom: 0.75rem;
+        }
+        
+        .expertise-item p {
+            color: var(--neutral-700);
+            line-height: 1.7;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, 
+                rgba(139, 157, 131, 0.03) 0%, 
+                rgba(139, 157, 131, 0.06) 100%);
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .testimonials-header h2 {
+            font-size: 3.5rem;
+            color: var(--neutral-900);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 2px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 6rem;
+            color: var(--sage-light);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--neutral-700);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .testimonial-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--neutral-900);
+        }
+        
+        .testimonial-title {
+            font-size: 0.95rem;
+            color: var(--sage-green);
+            font-weight: 500;
+        }
+        
+        .testimonial-title a {
+            color: var(--sage-green);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .testimonial-title a:hover {
+            color: var(--sage-dark);
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 8rem 2rem;
+            background: var(--neutral-900);
+            color: white;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-container h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-container p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem 3rem;
+            border: 2px solid var(--sage-green);
+            background: transparent;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .contact-email:hover {
+            background: var(--sage-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 157, 131, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--neutral-900);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-container p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--sage-green);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-image img {
+                margin: 0 auto;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .expertise-areas {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .about-container h2,
+            .approach-header h2,
+            .expertise-header h2,
+            .contact-container h2 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+        
+        /* Scroll Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Manifest Talent</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Partnership<br>Architecture<br>for Leaders</h1>
+                <p class="subtitle">Strategic Advisor to Mission-Driven Executives</p>
+                <p>Building meaningful collaborations requires more than connections—it demands strategic vision, deep trust, and a partner who understands the nuances of high-stakes relationships.</p>
+                <a href="#contact" class="cta-button">Start a Conversation</a>
+            </div>
+            <div class="hero-image">
+                <img src="ira_headshot_website.png" alt="Ira Liss - Strategic Partnership Advisor">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about fade-in-section">
+        <div class="about-container">
+            <div>
+                <span class="section-label">About</span>
+                <h2>Trusted Advisor to C-Level Executives</h2>
+            </div>
+            <div class="about-content">
+                <p>For over two decades, I've worked alongside C-level executives and mission-driven leaders to architect partnerships that matter. Not just deals—relationships built on mutual respect, shared vision, and strategic alignment.</p>
+                
+                <p>My approach is grounded in radical confidentiality and a peer-level understanding of what it takes to succeed at the highest levels. I don't operate as a traditional consultant. I'm the advisor you bring into the room when the stakes are high, the relationships are complex, and discretion is paramount.</p>
+                
+                <p>Whether you're navigating a transformative partnership, expanding into new markets, or building collaborative frameworks that scale, I bring both strategic insight and the practical wisdom that comes from decades of experience in the trenches.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="approach fade-in-section">
+        <div class="approach-container">
+            <div class="approach-header">
+                <span class="section-label">Approach</span>
+                <h2>Futurism Grounded in Wisdom</h2>
+                <p>Strategic partnership architecture isn't about following playbooks—it's about understanding human dynamics, organizational culture, and the art of building trust at scale.</p>
+            </div>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-number">01</div>
+                    <h3>Radical Confidentiality</h3>
+                    <p>Your partnerships, your strategy, your challenges—all remain strictly confidential. Discretion isn't just a promise; it's the foundation of how I work.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-number">02</div>
+                    <h3>Peer-Level Counsel</h3>
+                    <p>I engage as a trusted peer, not a typical consultant. Direct, honest, strategic—the kind of counsel you'd expect from someone who's been in the room where decisions are made.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-number">03</div>
+                    <h3>Strategic Vision</h3>
+                    <p>Every partnership has the potential to transform your business. I help you see around corners, anticipate challenges, and structure collaborations that create lasting value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise fade-in-section">
+        <div class="expertise-container">
+            <div class="expertise-header">
+                <span class="section-label">Expertise</span>
+                <h2>Where I Add Value</h2>
+            </div>
+            
+            <div class="expertise-areas">
+                <div class="expertise-item">
+                    <div class="expertise-icon"></div>
+                    <div>
+                        <h3>Partnership Strategy & Architecture</h3>
+                        <p>Designing and executing strategic partnerships that align with your mission, values, and business objectives.</p>
+                    </div>
+                </div>
+                
+                <div class="expertise-item">
+                    <div class="expertise-icon"></div>
+                    <div>
+                        <h3>Relationship Navigation</h3>
+                        <p>Managing complex stakeholder dynamics, building trust across organizational boundaries, and maintaining momentum through challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="expertise-item">
+                    <div class="expertise-icon"></div>
+                    <div>
+                        <h3>Market Expansion</h3>
+                        <p>Opening new markets and building strategic alliances that accelerate growth while protecting your brand and values.</p>
+                    </div>
+                </div>
+                
+                <div class="expertise-item">
+                    <div class="expertise-icon"></div>
+                    <div>
+                        <h3>Mission-Driven Collaboration</h3>
+                        <p>Structuring partnerships that honor your mission while delivering measurable business outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials fade-in-section">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <span class="section-label">Testimonials</span>
+                <h2>Trusted by Leaders</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Ira is a true Superconnector. Weeks into joining our open-sourced community, he established trust with our most active members and adapted a deep understanding of our operating system's (pAIOS). Evangelizing Kwaai over his vast network, Ira delivered globally-known domain experts, iconic founders, published authors, data scholars & politicians.. all contributing invaluable expertise, work product and momentum for our mission.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">Reza Rassool</div>
+                        <div class="testimonial-title">Founder of <a href="https://kwaai.ai" target="_blank" rel="noopener">Kwaai.ai</a></div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Ira is a multi-verse; bridging formidable people in music, film/TV, tech, social impact, etc. He mindfully connects & nurtures aligned clients & partners.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-name">J. Mackye Gruber</div>
+                        <div class="testimonial-title">Writer/Director, THE BUTTERFLY EFFECT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in-section">
+        <div class="contact-container">
+            <h2>Let's Talk</h2>
+            <p>If you're a C-level executive at a mission-driven organization looking for a trusted advisor to help architect meaningful partnerships, I'd welcome the conversation.</p>
+            <a href="mailto:ira@manifesttalent.com" class="contact-email">ira@manifesttalent.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Manifest Talent. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#approach">Approach</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar hide on scroll down, show on scroll up
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Fade-in animations on scroll
+        const faders = document.querySelectorAll('.fade-in-section');
+        
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
